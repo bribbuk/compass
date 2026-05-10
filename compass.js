@@ -11,7 +11,7 @@
      ------------------------------------------------------------------------- */
 
   const SVG_PATH = "cmb.svg";
-  const AUDIO_PATH = "audio.wav";
+  const AUDIO_PATH = "audio.m4a";
 
   const ANNOTATIONS = [
     {
