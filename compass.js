@@ -217,15 +217,15 @@
     status.textContent = "[ENDED]";
   });
 
-  object.addEventListener("load", () => {
+object.addEventListener("load", () => {
   const svgRoot = object.contentDocument?.querySelector("svg");
   if (!svgRoot) return;
 
-  // Helps prevent clipping in some mobile/browser contexts.
-  svgRoot.setAttribute("overflow", "visible");
-
-  // Forces the full SVG to fit inside its available box.
+  svgRoot.setAttribute("width", "100%");
+  svgRoot.setAttribute("height", "100%");
+  svgRoot.setAttribute("viewBox", "0 0 1280 640");
   svgRoot.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  svgRoot.setAttribute("overflow", "visible");
 });
 
 })();
