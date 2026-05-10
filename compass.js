@@ -80,19 +80,19 @@
       margin-bottom: 8px;
     }
 
-    .cmb-diagram {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      max-height: 620px;
-      margin-bottom: 10px;
-    }
+.cmb-diagram {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-    .cmb-diagram object {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+.cmb-diagram object {
+  width: 100%;
+  height: auto;
+  min-height: 240px;
+  display: block;
+  object-fit: contain;
+}
 
     .cmb-controls {
       display: flex;
@@ -217,11 +217,14 @@
   });
 
   object.addEventListener("load", () => {
-    const svgRoot = object.contentDocument?.querySelector("svg");
-    if (!svgRoot) return;
+  const svgRoot = object.contentDocument?.querySelector("svg");
+  if (!svgRoot) return;
 
-    // Helps prevent clipping in some mobile/browser contexts.
-    svgRoot.setAttribute("overflow", "visible");
-  });
+  // Helps prevent clipping in some mobile/browser contexts.
+  svgRoot.setAttribute("overflow", "visible");
+
+  // Forces the full SVG to fit inside its available box.
+  svgRoot.setAttribute("preserveAspectRatio", "xMidYMid meet");
+});
 
 })();
