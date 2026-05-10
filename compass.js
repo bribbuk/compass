@@ -83,15 +83,16 @@
 .cmb-diagram {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 620px;
   margin-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .cmb-diagram object {
   width: 100%;
-  height: auto;
-  min-height: 1px;
+  height: 100%;
   display: block;
-  object-fit: contain;
 }
 
     .cmb-controls {
