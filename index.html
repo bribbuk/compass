@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cassini's Compass</title>
 
+<style>
+  body {
+    background: #262626;
+    color: #ffcc00;
+    margin: 0;
+    padding: 0px;
+    line-height: 1.1;
+    font-family: monospace;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 2px #EBFA7A;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-family: monospace;
+    font-weight: 1000;
+    letter-spacing: 0.05em;
+    color: #ffcc00;
+    text-shadow: 0 0 3px #EBFA7A;
+    margin-top: 30px;
+    letter-spacing: 1px;
+  }
+
+  p.small {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+
+  .micro {
+    font-size: 0.65em;
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+  }
+
+  p.bodytext {
+    margin-top: 20px;
+    font-size: 1.3em;
+  }
+
+  .typeout {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.4em;
+    width: min(32ch, 100%);
+    font-family: monospace;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 4px #EBFA7A;
+    animation: typing 6s steps(60, end) infinite;
+  }
+
+  .typeout::after {
+    content: "▉";
+    display: inline-block;
+    margin-left: 4px;
+    color: #ffcc00;
+    text-shadow: 0 0 4px #EBFA7A;
+    animation: cursorBlink 0.8s step-end infinite;
+  }
+
+  @keyframes typing {
+    0%  { width: 0;   opacity: 1; }
+    40% { width: 100%; opacity: 1; }
+    60% { width: 100%; opacity: 1; }
+    90% { width: 100%; opacity: 1; }
+    95% { width: 100%; opacity: 0; }
+    100%{ width: 100%; opacity: 0; }
+  }
+
+  @keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 24px;
+    background: #ffcc00;
+    color: #262626;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    border-radius: 0px;
+    text-shadow: 0 0 3px #322B1A;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 3px #EBFA7A, 0 0 0px #EBFA7A inset;
+  }
+
+  .button:hover {
+    background: #e6b800;
+    border-color: #e6b800;
+  }
+
+  .scale-container { overflow: visible; }
+
+  .container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 50px;
+    transform: scale(1.2);
+    transform-origin: top center;
+  }
+
+  .teku-header {
+    font-family: monospace;
+    font-size: 0.85em;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .divider {
+    border: none;
+    border-bottom: 1px solid #ffcc00;
+    opacity: 0.3;
+    margin-bottom: 20px;
+  }
+
+  .crt {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    animation: crtFlicker 0.15s infinite;
+  }
+
+  .crt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      rgba(0, 0, 0, 0) 2px
+    );
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+  }
+
+  .crt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    opacity: 0.3;
+  }
+
+  @keyframes crtFlicker {
+    0% { opacity: 0.96; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
+  }
+
+.inline-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+  
+  /* ---------- MOBILE UI OPTIMISATION (≤600px) ---------- */
+  @media (max-width: 600px) {
+    body {
+      font-size: 8px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .teku-header {
+      font-size: 1.3em;
+      letter-spacing: 0.15em;
+    }
+
+    p.small { font-size: 1.0em; }
+
+    h1 {
+      font-size: 2em;
+      line-height: 1.3;
+    }
+
+    p.bodytext { font-size: 1.3em; }
+
+    .typeout { font-size: 1.3em; }
+
+    .button {
+      font-size: 1.4em;
+      padding: 16px 24px;
+    }
+
+    .container {
+      transform: none;
+      padding: 20px;
+    }
+
+    .map-topline { font-size: 1.0em; }
+    .map-controls { font-size: 1.0em; }
+    .map-bottom { font-size: 1.0em; }
+    .readout { font-size: 1.05em; }
+    .zoom-corner { font-size: 1.05em; right: 8px; bottom: 8px; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="scale-container">
+    <div class="crt">
+      <div class="container">
+
+        <p class="teku-header">UNREGISTERED TEKU SLATE</p>
+        <hr class="divider">
+        <p class="small">Project JANUS "Cassini Dataset Review 4377 - GK/DP/HL/JG"</p>
+
+        <div style="height: 40px;"></div>
+
+        <h1>Cassini's Compass</h1>
+
+<p class="bodytext">
+
+Lin. I have created this hardcopy of the old file we've come to call "Cassini's Compass" for you. It's been a well-kept secret for many decades. Do not let it fall into the wrong hands. 
+  Many sharp minds have been dulled in pursuit of the treasure alluded to herein. Don't become one of them. I trust this datatape will finally satisfy your curiosity. Stay on mission. <br>
+  <br>
+  JR
+</p>
+        
+        <div style="height: 20px;"></div>
+        
+        <p class="small">
+Render // Composite Spectrographic Map of New Cassini Signal <br>
+Render // Compiled Radio Wavelengths <br>
+Signal Dump ID // Segment .00–.25 <br>
+Annotation Thread // Linguistic Review <br>
+Authentication // PIV/CAC + Azure AD <br>
+Exported from // OneDrive > Restricted Tenant <br>
+        </p>
+
+        <div style="height: 20px;"></div>
+
+        <p class="typeout">▉ ▉ ▉ File Decompiled </p>
+
+        <div style="height: 20px;"></div>
+        
+<div id="compass"></div>
+        
+      </div>
+    </div>
+  </div>
+
+<script src="compass.js"></script>
+  
+</body>
+</html>
