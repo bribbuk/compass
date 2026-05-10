@@ -127,7 +127,7 @@
      3. DOM CONSTRUCTION
      ------------------------------------------------------------------------- */
 
-  const mount = document.getElementById("cmb-instrument");
+  const mount = document.getElementById("compass");
   if (!mount) return;
 
   const frame = document.createElement("div");
