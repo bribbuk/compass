@@ -15,16 +15,40 @@
 
   const ANNOTATIONS = [
     {
-      speaker: "Person 1",
-      text: "Text 1"
+      speaker: "Prof. G Kirby",
+      text: "Note the syntactic patterning between .03 and .08."
     },
     {
-      speaker: "Person 2",
-      text: "Text 2"
+      speaker: "Dr. D Pendron",
+      text: "The whole thing renders like the CMB again."
     },
     {
-      speaker: "Person 3",
-      text: "Text 3"
+      speaker: "Prof. G Kirby",
+      text: "But it is still doing language."
+    },
+    {
+      speaker: "Prof. G Kirby",
+      text: "The language is emulating the CMB."
+    },
+    {
+      speaker: "Prof. G Kirby",
+      text: "That's what keeps tripping us up."
+    },
+    {
+      speaker: "Dr. J Green",
+      text: "What's the updated hypothesis?"
+    },
+    {
+      speaker: "Prof. G Kirby",
+      text: " It's 'speaking' (I remain dubious about using that word, Jim) in a vocabulary of 'CMB-grams'."
+    },
+    {
+      speaker: "Prof. G Kirby",
+      text: "A literal cosmic grammatology"
+    },
+    {
+      speaker: "Dr. J Green",
+      text: "If that's true, Gaius, Cassini's discovery really is the greatest treasure of all mankind."
     }
   ];
 
