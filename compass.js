@@ -20,7 +20,7 @@
     },
     {
       speaker: "Dr. D Pendron",
-      text: "The whole thing renders like the CMB again."
+      text: "The whole thing renders like the CMB again in the mapper."
     },
     {
       speaker: "Prof. G Kirby",
@@ -28,7 +28,7 @@
     },
     {
       speaker: "Prof. G Kirby",
-      text: "The language is emulating the CMB."
+      text: "The language is just emulating the CMB."
     },
     {
       speaker: "Prof. G Kirby",
@@ -44,7 +44,7 @@
     },
     {
       speaker: "Prof. G Kirby",
-      text: "A literal cosmic grammatology"
+      text: "A literal cosmic grammatology, in the technical sense."
     },
     {
       speaker: "Dr. J Green",
@@ -160,7 +160,7 @@
 
   frame.innerHTML = `
     <div class="cmb-top">
-      <span>Composite Spectrography-Map of New Cassini Signal</span>
+      <span>VISUALIZER: Composite Spectrographic Map of New Cassini Signal</span>
     </div>
 
     <div class="cmb-diagram">
@@ -168,8 +168,8 @@
     </div>
 
     <div class="cmb-controls">
-      <button id="cmb-play" class="cmb-button" type="button">PLAY AUDIO</button>
-      <span id="cmb-status" class="cmb-status">[READY]</span>
+      <button id="cmb-play" class="cmb-button" type="button">PLAY AUDIO RENDER</button>
+      <span id="cmb-status" class="cmb-status">[COMPILER READY]</span>
     </div>
 
     <div class="cmb-divider"></div>
@@ -203,18 +203,18 @@
   playButton.addEventListener("click", () => {
     if (audio.paused) {
       audio.play();
-      playButton.textContent = "PAUSE AUDIO";
-      status.textContent = "[PLAYING]";
+      playButton.textContent = "PAUSE AUDIO RENDER";
+      status.textContent = "[COMPILER PLAYING]";
     } else {
       audio.pause();
-      playButton.textContent = "PLAY AUDIO";
-      status.textContent = "[PAUSED]";
+      playButton.textContent = "PLAY AUDIO RENDER";
+      status.textContent = "[COMPILER PAUSED]";
     }
   });
 
   audio.addEventListener("ended", () => {
-    playButton.textContent = "PLAY AUDIO";
-    status.textContent = "[ENDED]";
+    playButton.textContent = "PLAY AUDIO RENDER";
+    status.textContent = "[COMPILER ENDED]";
   });
 
 object.addEventListener("load", () => {
