@@ -89,7 +89,7 @@
 .cmb-diagram object {
   width: 100%;
   height: auto;
-  min-height: 240px;
+  min-height: 1px;
   display: block;
   object-fit: contain;
 }
